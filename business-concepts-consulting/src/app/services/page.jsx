@@ -33,9 +33,15 @@ export default function ServicesPage() {
   };
 
   const handleCardClick = (serviceId) => {
-    setSelectedId(serviceId);
-    window.history.pushState(null, '', `#${serviceId}`);
-    scrollToService(serviceId);
+    console.log('Card clicked:', serviceId);
+    if (selectedId === serviceId) {
+      setSelectedId('');
+      window.history.pushState(null, '', window.location.pathname);
+    } else {
+      setSelectedId(serviceId);
+      window.history.pushState(null, '', `#${serviceId}`);
+      scrollToService(serviceId);
+    }
   };
 
   const services = [
@@ -183,7 +189,7 @@ export default function ServicesPage() {
               const isSelected = serviceId === selectedId;
               
               return (
-                <ScrollAnimation key={index}>
+                <ScrollAnimation key={index} threshold={0.01} duration={0.03}>
                   <div id={serviceId} className="relative group">
                     {/* Glow Effects Behind Card */}
                     {isSelected && (

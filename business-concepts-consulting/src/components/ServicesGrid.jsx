@@ -7,11 +7,13 @@ import Link from 'next/link';
 
 export default function ServicesGrid() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
+    setIsLoading(false);
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 640);
     };
@@ -65,18 +67,32 @@ export default function ServicesGrid() {
     }
   ];
 
-  if (!isMounted) {
-    return null;
-  }
+  // Show loading state
+  // if (isLoading) {
+  //   return (
+  //     <div className="relative z-50 min-h-[200px] flex items-center justify-center">
+  //       <div className="text-white">Loading services...</div>
+  //     </div>
+  //   );
+  // }
+
+  // Don't render until mounted
+  // if (!isMounted) {
+  //   return null;
+  // }
 
   const ServiceCard = ({ service, index }) => (
-    <div className="p-6">
-      <div className="text-3xl mb-4">{service.icon}</div>
-      <h3 className="text-xl font-bold mb-2 text-secondary-gray">{service.title}</h3>
-      <p className="text-secondary-gray/80 text-sm mb-4">{service.description}</p>
+    <div className="p-4 sm:p-6">
+      <div className="text-2xl sm:text-3xl mb-3 sm:mb-4">{service.icon}</div>
+      <h3 className="text-lg sm:text-xl font-bold mb-1.5 sm:mb-2 text-secondary-gray">
+        {service.title}
+      </h3>
+      <p className="text-xs sm:text-sm text-secondary-gray/80 mb-3 sm:mb-4">
+        {service.description}
+      </p>
       <Link 
         href={`/services#${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-        className="inline-block text-sm text-accent-teal hover:text-accent-teal/80 transition-colors"
+        className="inline-block text-xs sm:text-sm text-accent-teal hover:text-accent-teal/80 transition-colors"
       >
         Learn More →
       </Link>
@@ -84,52 +100,54 @@ export default function ServicesGrid() {
   );
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto px-4">
-      {services.map((service, index) => (
-        isMobile ? (
-          // Mobile version - no animations
-          <div key={index} className="relative">
-            <GlassCard className="h-full">
-              <ServiceCard service={service} index={index} />
-            </GlassCard>
-          </div>
-        ) : (
-          // Desktop version - with animations
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.5,
-              delay: index * 0.1,
-              ease: 'easeOut'
-            }}
-            className="relative group"
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-          >
-            <GlassCard className={`
-              transform transition-all duration-300 h-full
-              ${hoveredIndex === index ? 'scale-[1.02]' : ''}
-              hover:shadow-xl
-            `}>
-              <ServiceCard service={service} index={index} />
-              <AnimatePresence>
-                {hoveredIndex === index && (
-                  <motion.div 
-                    layoutId="hoverBackground"
-                    className="absolute -inset-2 bg-gradient-to-r from-accent-teal/20 to-accent-teal/10 rounded-xl blur opacity-60 -z-10"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.6 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  />
-                )}
-              </AnimatePresence>
-            </GlassCard>
-          </motion.div>
-        )
-      ))}
+    <div className="relative z-50">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto px-4">
+        {services.map((service, index) => (
+          isMobile ? (
+            // Mobile version - no animations
+            <div key={index} className="relative">
+              <GlassCard className="h-full">
+                <ServiceCard service={service} index={index} />
+              </GlassCard>
+            </div>
+          ) : (
+            // Desktop version - with animations
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+                ease: 'easeOut'
+              }}
+              className="relative group"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <GlassCard className={`
+                transform transition-all duration-300 h-full
+                ${hoveredIndex === index ? 'scale-[1.02]' : ''}
+                hover:shadow-xl
+              `}>
+                <ServiceCard service={service} index={index} />
+                <AnimatePresence>
+                  {hoveredIndex === index && (
+                    <motion.div 
+                      layoutId="hoverBackground"
+                      className="absolute -inset-2 bg-gradient-to-r from-accent-teal/20 to-accent-teal/10 rounded-xl blur opacity-60 -z-10"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 0.6 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    />
+                  )}
+                </AnimatePresence>
+              </GlassCard>
+            </motion.div>
+          )
+        ))}
+      </div>
     </div>
   );
 }

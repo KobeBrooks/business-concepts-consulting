@@ -17,9 +17,7 @@ export default function GlassNavbar() {
   ];
 
   return (
-    <nav className="fixed w-full backdrop-glass bg-glass/30 shadow-lg z-50 
-      after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[100px] 
-      after:bg-gradient-to-t after:from-black/10 after:to-transparent after:-z-10">
+    <nav className="fixed top-0 left-0 right-0 bg-glass-bg bg-opacity-40 backdrop-blur-lg z-[100]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}

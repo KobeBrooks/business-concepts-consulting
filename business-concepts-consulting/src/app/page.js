@@ -16,8 +16,8 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <section className="py-20" id="services">
-          <ScrollAnimation>
+        <section className="py-10" id="services">
+          <ScrollAnimation threshold={0.1} duration={0.3}>
             <div className="max-w-7xl mx-auto px-4">
               <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
               <ServicesGrid />

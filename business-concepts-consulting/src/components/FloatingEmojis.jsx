@@ -17,11 +17,11 @@ export default function FloatingEmojis() {
   if (!mounted) return null;
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-[5]">
       {emojis.map((emoji, index) => (
         <motion.div
           key={index}
-          className="absolute text-4xl opacity-[0.02]"
+          className="absolute text-3xl"
           initial={{
             x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
             y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
