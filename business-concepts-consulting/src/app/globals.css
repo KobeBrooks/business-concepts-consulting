@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --primary-navy: #1E2A38;
+  --secondary-gray: #F5F6F7;
+  --accent-teal: #2EB8B3;
+  --text-charcoal: #2C2C2C;
+  --highlight-gray: #DCDCDC;
+  
+  /* Glass Effect Colors */
+  --glass-bg: rgba(30, 42, 56, 0.15);
+  --glass-border: rgba(245, 246, 247, 0.1);
+  --glass-shadow: rgba(30, 42, 56, 0.2);
+  
+  /* Gradient Colors */
+  --gradient-start: #1E2A38;
+  --gradient-end: #2C3E50;
+}
+
+/* Base Styles */
+body {
+  color: var(--secondary-gray);
+  background: var(--primary-navy);
+  min-height: 100vh;
+}
+
+/* Glassmorphism Utilities */
+.backdrop-glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+
+.bg-glass {
+  background: var(--glass-bg);
+}
+
+/* Smooth Transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-teal);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--highlight-gray);
+}
+
+/* Form Elements */
+input, textarea {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--secondary-gray);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-teal);
+  box-shadow: 0 0 0 2px rgba(46, 184, 179, 0.2);
+}
+
+/* Glass Card Hover Effects */
+.glass-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, rgba(245, 246, 247, 0.1), rgba(30, 42, 56, 0.2));
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 var(--glass-shadow);
+  background: linear-gradient(135deg, rgba(245, 246, 247, 0.15), rgba(30, 42, 56, 0.25));
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Button Styles */
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation Classes */
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .glass-card {
+    margin: 1rem;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.12);
+  }
+} 
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(20px, -20px) scale(1.1); }
+  50% { transform: translate(0, -40px) scale(1); }
+  75% { transform: translate(-20px, -20px) scale(0.9); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+@layer components {
+  .nav-link-hover {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] 
+           after:w-0 after:bg-gradient-to-r after:from-accent-teal after:to-accent-teal/70
+           hover:after:w-full after:transition-all after:duration-300;
+  }
+  
+  .shine-effect {
+    @apply relative overflow-hidden 
+           before:absolute before:top-0 before:-left-full before:w-full before:h-full
+           before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent
+           hover:before:left-full before:transition-all before:duration-500;
+  }
+}
