@@ -9,12 +9,18 @@ runs:
       with:
         node-version: 20
 
+    - name: Change to app directory 📂
+      run: |
+        cd business-concepts-consulting
+        echo "Changed to directory:"
+        pwd
+
     - name: Cache dependencies ⚡
       id: cache_dependencies
       uses: actions/cache@v3
       with:
-        path: node_modules
-        key: node-modules-${{ hashFiles('package-lock.json') }}
+        path: business-concepts-consulting/node_modules
+        key: node-modules-${{ hashFiles('business-concepts-consulting/package-lock.json') }}
 
     - name: Install dependencies 🔧
       shell: bash
