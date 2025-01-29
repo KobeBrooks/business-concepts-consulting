@@ -24,7 +24,7 @@ export default function GlassNavbar() {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <Image
-                src="/businessConceptsConsulting.png"
+                src={getImagePath('/businessConceptsConsulting.png')}
                 alt="BCC Accounting Logo"
                 width={50}
                 height={50}
