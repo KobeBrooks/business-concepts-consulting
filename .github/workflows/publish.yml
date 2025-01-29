@@ -32,7 +32,7 @@ jobs:
 
       - name: Build with Next.js 🏗️
         working-directory: ./business-concepts-consulting
-        run: npx next build
+        run: npm run build
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
