@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { getImagePath } from '@/utils/imagePath';
 
 export default function GlassNavbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
