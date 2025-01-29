@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import GlassCard from './GlassCard';
 import Image from 'next/image';
 import FloatingEmojis from './FloatingEmojis';
+import { getImagePath } from '@/utils/imagePath';
 
 export default function HeroSection() {
   const handleScroll = () => {
@@ -62,7 +63,7 @@ export default function HeroSection() {
               <div className="absolute inset-0 flex items-center justify-center">
                 <GlassCard className="w-full h-[500px] relative overflow-hidden">
                   <Image
-                    src="/theEarles.png"
+                    src={getImagePath('/theEarles.png')}
                     alt="Chris & Audrey Earle"
                     fill
                     className="object-contain p-8"

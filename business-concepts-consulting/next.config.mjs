@@ -1,12 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     basePath: "/business-concepts-consulting",
-    output: "export",  // <=== enables static exports
-    images: {
-        unoptimized: true,
-    },
-    assetPrefix: "/business-concepts-consulting/",
+    output: "export", 
     reactStrictMode: true,
-};
-
-export default nextConfig;
+  };
+  
+  export default nextConfig;
