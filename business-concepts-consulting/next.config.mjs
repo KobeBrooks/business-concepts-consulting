@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     basePath: "/business-concepts-consulting",
-    // output: "export", 
+    output: "export", 
     reactStrictMode: true,
   };
   
