@@ -21,20 +21,25 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+        working-directory: ./business-concepts-consulting
 
       - name: Setup Node.js ⚙️ - Cache dependencies ⚡ - Install dependencies 🔧
         uses: ./.github/workflows/setup-node
+        working-directory: ./business-concepts-consulting
 
       - name: Setup Pages ⚙️
         uses: actions/configure-pages@v4
+        working-directory: ./business-concepts-consulting
         with:
           static_site_generator: next
 
       - name: Build with Next.js 🏗️
+        working-directory: ./business-concepts-consulting
         run: npx next build
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
+        working-directory: ./business-concepts-consulting
         with:
           path: ./out
 

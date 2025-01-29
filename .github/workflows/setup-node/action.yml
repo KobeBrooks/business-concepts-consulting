@@ -6,23 +6,20 @@ runs:
   steps:
     - name: Setup Node.js ⚙️
       uses: actions/setup-node@v4
+      working-directory: ./business-concepts-consulting
       with:
         node-version: 20
-
-    - name: Change to app directory 📂
-      run: |
-        cd business-concepts-consulting
-        echo "Changed to directory:"
-        pwd
 
     - name: Cache dependencies ⚡
       id: cache_dependencies
       uses: actions/cache@v3
+      working-directory: ./business-concepts-consulting
       with:
-        path: business-concepts-consulting/node_modules
-        key: node-modules-${{ hashFiles('business-concepts-consulting/package-lock.json') }}
+        path: node_modules
+        key: node-modules-${{ hashFiles('package-lock.json') }}
 
     - name: Install dependencies 🔧
       shell: bash
+      working-directory: ./business-concepts-consulting
       if: steps.cache_dependencies.outputs.cache-hit != 'true'
       run: npm install
