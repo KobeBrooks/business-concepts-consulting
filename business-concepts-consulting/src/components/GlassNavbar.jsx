@@ -18,7 +18,7 @@ export default function GlassNavbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-glass-bg bg-opacity-40 backdrop-blur-lg z-[100]">
+    <nav className="fixed top-0 left-0 right-0 bg-glass-bg bg-opacity-40 backdrop-blur-lg z-[100] text-secondary-gray">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -124,18 +124,19 @@ export default function GlassNavbar() {
         className={`
           md:hidden 
           transform transition-all duration-300 ease-in-out
+          bg-primary-navy/95 backdrop-blur-lg
           ${isMobileMenuOpen 
-            ? 'opacity-100 translate-y-0 max-h-0px]' 
+            ? 'opacity-100 translate-y-0 max-h-[500px]' 
             : 'opacity-0 -translate-y-4 max-h-0 overflow-hidden'}
         `}
       >
-        <div className="px-4 pt-2 pb-3 space-y-1 backdrop-glass bg-glass/50 border-b border-glass/50">
+        <div className="px-4 pt-2 pb-3 space-y-1 border-t border-glass-border/50">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-lg text-sm text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200"
+              className="block px-3 py-2 rounded-lg text-sm text-secondary-gray hover:text-white hover:bg-white/10 transition-all duration-200"
             >
               {item.name}
             </Link>
@@ -145,10 +146,11 @@ export default function GlassNavbar() {
             href="/contact"
             onClick={() => setIsMobileMenuOpen(false)}
             className="block mt-2 px-3 py-2 rounded-lg text-sm text-center
-              bg-gradient-to-r from-blue-500 to-blue-400
-              hover:from-blue-400 hover:to-blue-500
+              bg-gradient-to-r from-accent-teal to-accent-teal/80
+              hover:from-accent-teal/90 hover:to-accent-teal
+              text-secondary-gray
               transition-all duration-300
-              shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+              shadow-lg hover:shadow-accent-teal/30"
           >
             Get Started
           </Link>
