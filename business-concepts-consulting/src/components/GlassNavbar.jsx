@@ -14,7 +14,7 @@ export default function GlassNavbar() {
   const navItems = [
     { name: 'Services', href: '/services' },
     { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Resources', href: '/resources' }
   ];
 
   return (
@@ -58,7 +58,7 @@ export default function GlassNavbar() {
               </Link>
             ))}
             
-            {/* CTA Button */}
+            {/* Contact Button (previously Get Started) */}
             <Link
               href="/contact"
               className="relative inline-flex items-center px-4 py-1.5 text-sm overflow-hidden rounded-full
@@ -69,7 +69,7 @@ export default function GlassNavbar() {
                 hover:shadow-[0_0_25px_rgba(59,130,246,0.5)]"
             >
               <span className="relative z-10 font-semibold">
-                Get Started
+                Contact Us
               </span>
               {/* Shine effect */}
               <span className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-full transition-all duration-500" />
@@ -141,7 +141,7 @@ export default function GlassNavbar() {
               {item.name}
             </Link>
           ))}
-          {/* Mobile CTA Button */}
+          {/* Mobile Contact Button */}
           <Link
             href="/contact"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -152,7 +152,7 @@ export default function GlassNavbar() {
               transition-all duration-300
               shadow-lg hover:shadow-accent-teal/30"
           >
-            Get Started
+            Contact Us
           </Link>
         </div>
       </div>

@@ -22,6 +22,10 @@ export default function HeroSection() {
     router.push('/services');
   };
 
+  const handleGetStarted = () => {
+    router.push('/contact');
+  };
+
   return (
     <div className="relative min-h-[90vh] flex flex-col justify-between overflow-hidden pt-32 md:pt-24">
       {/* Animated Background Gradients */}
@@ -49,11 +53,13 @@ export default function HeroSection() {
                   Our mission is to help you grow your financial success through high-quality accounting, tax, and consulting services.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                  <button className="px-8 py-4 rounded-xl font-semibold 
-                    bg-accent-teal/90 hover:bg-accent-teal
-                    text-secondary-gray
-                    transform hover:scale-[1.02] transition-all duration-300 
-                    shadow-lg hover:shadow-accent-teal/30">
+                  <button 
+                    onClick={handleGetStarted}
+                    className="px-8 py-4 rounded-xl font-semibold 
+                      bg-accent-teal/90 hover:bg-accent-teal
+                      text-secondary-gray
+                      transform hover:scale-[1.02] transition-all duration-300 
+                      shadow-lg hover:shadow-accent-teal/30">
                     Get Started
                   </button>
                   <button 
