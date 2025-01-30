@@ -84,7 +84,7 @@ export default function AboutPage() {
 
           {/* Core Values */}
           <ScrollAnimation>
-            <div className="mb-16 pt-16">
+            <div className="mb-16">
               <h2 className="text-3xl font-bold text-center text-secondary-gray mb-8">Our Core Values</h2>
               <div className="grid md:grid-cols-4 gap-6">
                 {coreValues.map((value, index) => (
