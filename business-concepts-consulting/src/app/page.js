@@ -34,16 +34,6 @@ export default function Home() {
             </div>
           </ScrollAnimation>
         </section>
-
-        {/* Contact Section */}
-        <section className="py-20" id="contact">
-          <ScrollAnimation>
-            <div className="max-w-7xl mx-auto px-4">
-              <h2 className="text-3xl font-bold text-center mb-12">Get In Touch</h2>
-              <ContactForm />
-            </div>
-          </ScrollAnimation>
-        </section>
       </main>
 
       {/* Footer */}

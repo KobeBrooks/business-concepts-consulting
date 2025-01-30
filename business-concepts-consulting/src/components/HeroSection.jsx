@@ -3,15 +3,23 @@
 import { motion } from 'framer-motion';
 import GlassCard from './GlassCard';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import FloatingEmojis from './FloatingEmojis';
 import { getImagePath } from '@/utils/imagePath';
 
 export default function HeroSection() {
+  const router = useRouter();
+
   const handleScroll = () => {
     window.scrollTo({
       top: window.innerHeight,
       behavior: 'smooth'
     });
+  };
+
+  const handleLearnMore = () => {
+    router.push('/services');
   };
 
   return (
@@ -48,10 +56,12 @@ export default function HeroSection() {
                     shadow-lg hover:shadow-accent-teal/30">
                     Get Started
                   </button>
-                  <button className="px-8 py-4 rounded-xl font-semibold
-                    bg-glass hover:bg-white/10 
-                    text-secondary-gray 
-                    transition-all duration-300">
+                  <button 
+                    onClick={handleLearnMore}
+                    className="px-8 py-4 rounded-xl font-semibold
+                      bg-glass hover:bg-white/10 
+                      text-secondary-gray 
+                      transition-all duration-300">
                     Learn More
                   </button>
                 </div>
