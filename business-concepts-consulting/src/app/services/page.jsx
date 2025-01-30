@@ -4,6 +4,7 @@ import GlassNavbar from '@/components/GlassNavbar';
 import GlassCard from '@/components/GlassCard';
 import { motion } from 'framer-motion';
 import ScrollAnimation from '@/components/ScrollAnimation';
+import FloatingEmojis from '@/components/FloatingEmojis';
 import { useEffect, useState } from 'react';
 
 export default function ServicesPage() {
@@ -170,8 +171,16 @@ export default function ServicesPage() {
   return (
     <>
       <GlassNavbar />
-      <main className="min-h-screen bg-gradient-to-br from-gradient-start to-gradient-end pt-24">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <main className="min-h-screen overflow-x-hidden bg-gradient-to-br from-gradient-start to-gradient-end">
+        {/* Background Effects */}
+        <div className="fixed inset-0 z-0 overflow-hidden">
+          <FloatingEmojis />
+          <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-gradient-to-r from-blue-500/30 to-purple-500/30 blur-[100px] animate-blob" />
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-gradient-to-l from-blue-400/30 to-indigo-500/30 blur-[100px] animate-blob animation-delay-2000" />
+        </div>
+
+        {/* Rest of your services page content */}
+        <div className="relative z-10 container mx-auto px-4 py-24">
           <ScrollAnimation>
             <div className="text-center mb-4 md:mb-32 p-8">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-secondary-gray to-accent-teal/90">
@@ -183,7 +192,7 @@ export default function ServicesPage() {
             </div>
           </ScrollAnimation>
 
-          <div className="grid md:grid-cols-2 gap-16 md:gap-24">
+          <div className="grid md:grid-cols-2 gap-16 md:gap-12">
             {services.map((service, index) => {
               const serviceId = service.title.toLowerCase().replace(/\s+/g, '-');
               const isSelected = serviceId === selectedId;
