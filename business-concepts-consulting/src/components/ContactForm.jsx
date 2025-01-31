@@ -36,7 +36,12 @@ export default function ContactForm() {
         </div>
         <button
           type="submit"
-          className="w-full bg-primary-blue hover:bg-primary-dark text-white px-6 py-3 rounded-lg transition-colors"
+          className="w-full block mt-2 px-3 py-2 rounded-lg text-sm text-center
+              bg-gradient-to-r from-accent-teal to-accent-teal/80
+              hover:from-accent-teal/90 hover:to-accent-teal
+              text-secondary-gray
+              transition-all duration-300
+              shadow-lg hover:shadow-accent-teal/30"
         >
           Send Message
         </button>

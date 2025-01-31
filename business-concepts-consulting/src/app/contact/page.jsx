@@ -42,19 +42,19 @@ export default function ContactPage() {
               <GlassCard className="p-6 text-center">
                 <div className="text-3xl mb-4">📍</div>
                 <h3 className="text-xl font-bold text-secondary-gray mb-2">Location</h3>
-                <p className="text-secondary-gray/90">Houston, Texas</p>
+                <p className="text-secondary-gray/90">Kennesaw, Georgia</p>
               </GlassCard>
 
               <GlassCard className="p-6 text-center">
                 <div className="text-3xl mb-4">📞</div>
                 <h3 className="text-xl font-bold text-secondary-gray mb-2">Phone</h3>
-                <p className="text-secondary-gray/90">(555) 123-4567</p>
+                <p className="text-secondary-gray/90">(770) 241-9821</p>
               </GlassCard>
 
               <GlassCard className="p-6 text-center">
                 <div className="text-3xl mb-4">✉️</div>
                 <h3 className="text-xl font-bold text-secondary-gray mb-2">Email</h3>
-                <p className="text-secondary-gray/90">info@bccaccounting.com</p>
+                <p className="text-secondary-gray/90">chrisearle.bcc@gmail.com</p>
               </GlassCard>
             </div>
           </ScrollAnimation>

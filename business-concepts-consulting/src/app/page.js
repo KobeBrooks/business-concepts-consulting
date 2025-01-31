@@ -39,7 +39,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-primary-dark text-white py-8">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p>© 2024 BCC Accounting Services. All rights reserved.</p>
+          <p>© 2025 by Business Concepts Consulting - Accounting & Tax Services</p>
         </div>
       </footer>
     </>

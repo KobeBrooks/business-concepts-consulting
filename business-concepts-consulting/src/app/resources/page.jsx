@@ -4,38 +4,71 @@ import GlassNavbar from '@/components/GlassNavbar';
 import GlassCard from '@/components/GlassCard';
 import ScrollAnimation from '@/components/ScrollAnimation';
 import FloatingEmojis from '@/components/FloatingEmojis';
-import Link from 'next/link';
 
 export default function ResourcesPage() {
   const forms = [
-    { name: 'W-4', description: 'Employee\'s Withholding Certificate', icon: '📝' },
-    { name: 'G-4 (Georgia W-4)', description: 'Georgia State Tax Withholding Form', icon: '📋' },
-    { name: 'Form I-9', description: 'Employment Eligibility Verification', icon: '✅' },
-    { name: 'Form SS-4', description: 'Application for Employer Identification Number', icon: '🔢' },
-    { name: 'Employer Status Report', description: 'Employment Status Documentation', icon: '📊' },
-    { name: 'Form 2848', description: 'Power of Attorney and Declaration of Representative', icon: '⚖️' }
+    { 
+      name: 'W-4', 
+      description: 'Employee\'s Withholding Certificate', 
+      icon: '📝',
+      url: 'http://www.irs.gov/pub/irs-pdf/fw4.pdf'
+    },
+    { 
+      name: 'G-4 (Georgia W-4)', 
+      description: 'Georgia State Tax Withholding Form', 
+      icon: '📋',
+      url: 'https://dor.georgia.gov/document/form/tsdemployeeswithholdingallowancecertificateg-4pdf/download'
+    },
+    { 
+      name: 'Form I-9', 
+      description: 'Employment Eligibility Verification', 
+      icon: '✅',
+      url: 'http://www.uscis.gov/sites/default/files/files/form/i-9.pdf'
+    },
+    { 
+      name: 'Form SS-4', 
+      description: 'Application for Employer Identification Number', 
+      icon: '🔢',
+      url: 'http://www.irs.gov/pub/irs-pdf/fss4.pdf'
+    },
+    { 
+      name: 'Employer Status Report', 
+      description: 'Employment Status Documentation', 
+      icon: '📊',
+      url: 'https://dol.georgia.gov/document/unemployment-tax/application-gdol-tax-account-or-status-change-dol-1n/download'
+    },
+    { 
+      name: 'Form 2848', 
+      description: 'Power of Attorney and Declaration of Representative', 
+      icon: '⚖️',
+      url: 'http://www.irs.gov/pub/irs-pdf/f2848.pdf'
+    }
   ];
 
   const publications = [
     { 
       name: 'Your Federal Income Tax (For Individuals)',
       description: 'Comprehensive guide for individual taxpayers',
-      icon: '📚'
+      icon: '📚',
+      url: 'http://www.irs.gov/pub/irs-pdf/p17.pdf'
     },
     { 
       name: 'Tax Guides for U.S. Citizens and Resident Aliens Abroad',
       description: 'Essential information for overseas taxpayers',
-      icon: '🌎'
+      icon: '🌎',
+      url: 'http://www.irs.gov/pub/irs-pdf/p54.pdf'
     },
     { 
       name: 'Tax Calendars',
       description: 'Important dates and deadlines for tax filing',
-      icon: '📅'
+      icon: '📅',
+      url: 'http://www.irs.gov/pub/irs-pdf/p509.pdf'
     },
     { 
       name: 'Starting a Business and Keeping Records',
       description: 'Guide for new business owners on tax compliance',
-      icon: '💼'
+      icon: '💼',
+      url: 'http://www.irs.gov/pub/irs-pdf/p583.pdf'
     }
   ];
 
@@ -70,9 +103,11 @@ export default function ResourcesPage() {
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {forms.map((form, index) => (
-                  <Link 
+                  <a 
                     key={index}
-                    href="#"
+                    href={form.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group relative p-6 rounded-xl 
                       bg-gradient-to-br from-glass-bg/30 to-glass-bg/10
                       hover:from-glass-bg/40 hover:to-glass-bg/20
@@ -92,7 +127,7 @@ export default function ResourcesPage() {
                       </div>
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-r from-accent-teal/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
-                  </Link>
+                  </a>
                 ))}
               </div>
             </GlassCard>
@@ -106,9 +141,11 @@ export default function ResourcesPage() {
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {publications.map((pub, index) => (
-                  <Link 
+                  <a 
                     key={index}
-                    href="#"
+                    href={pub.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group relative p-6 rounded-xl 
                       bg-gradient-to-br from-glass-bg/30 to-glass-bg/10
                       hover:from-glass-bg/40 hover:to-glass-bg/20
@@ -128,7 +165,7 @@ export default function ResourcesPage() {
                       </div>
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-r from-accent-teal/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
-                  </Link>
+                  </a>
                 ))}
               </div>
             </GlassCard>
