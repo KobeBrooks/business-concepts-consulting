@@ -68,6 +68,7 @@ export default function ServicesPage() {
       details: [
         'Corporate tax return preparation',
         'Partnership tax filings',
+        'S-Corp tax filings',
         'LLC tax compliance',
         'Business tax planning',
         'Quarterly tax estimates',
@@ -75,6 +76,20 @@ export default function ServicesPage() {
         'Industry-specific tax strategies',
         'Multi-state tax compliance'
       ]
+    },
+    {
+        title: 'Bookkeeping Services',
+        description: 'Comprehensive bookkeeping and accounting services to keep your finances organized.',
+        icon: '📚',
+        details: [
+          'Monthly financial recording',
+          'Bank reconciliation',
+          'Accounts payable/receivable',
+          'General ledger maintenance',
+          'Financial statement preparation',
+          'QuickBooks setup and support',
+          'Financial record organization'
+        ]
     },
     {
       title: '501(c)3 IRS Application',
@@ -92,14 +107,12 @@ export default function ServicesPage() {
       ]
     },
     {
-      title: '1099s & W-2s',
-      description: 'Accurate preparation and filing of tax forms for your employees and contractors.',
+      title: '1099s',
+      description: 'Accurate preparation and filing of tax forms for your contractors.',
       icon: '📑',
       details: [
-        'W-2 preparation and filing',
         '1099 form preparation',
         'Electronic submission to IRS',
-        'State filing requirements',
         'Year-end processing',
         'Employee/contractor classification review',
         'Deadline compliance management',
@@ -119,21 +132,6 @@ export default function ServicesPage() {
         'Risk assessment',
         'Market analysis',
         'Profitability enhancement strategies'
-      ]
-    },
-    {
-      title: 'Bookkeeping Services',
-      description: 'Comprehensive bookkeeping and accounting services to keep your finances organized.',
-      icon: '📚',
-      details: [
-        'Monthly financial recording',
-        'Bank reconciliation',
-        'Accounts payable/receivable',
-        'General ledger maintenance',
-        'Financial statement preparation',
-        'Payroll processing',
-        'QuickBooks setup and support',
-        'Financial record organization'
       ]
     },
     {
