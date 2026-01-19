@@ -100,7 +100,7 @@ export default function ContactForm() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-2 rounded-lg bg-glass/50 backdrop-blur-sm border border-glass-border text-secondary-gray placeholder-secondary-gray/50 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20"
+            className="w-full px-4 py-2 rounded-lg bg-glass/50 backdrop-blur-sm border border-glass-border text-black placeholder-secondary-gray/50 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20"
             placeholder="Your name"
             required
             disabled={status.loading}
@@ -113,7 +113,7 @@ export default function ContactForm() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 rounded-lg bg-glass/50 backdrop-blur-sm border border-glass-border text-secondary-gray placeholder-secondary-gray/50 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20"
+            className="w-full px-4 py-2 rounded-lg bg-glass/50 backdrop-blur-sm border border-glass-border text-black placeholder-secondary-gray/50 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20"
             placeholder="your.email@example.com"
             required
             disabled={status.loading}
@@ -125,7 +125,7 @@ export default function ContactForm() {
             name="message"
             value={formData.message}
             onChange={handleChange}
-            className="w-full px-4 py-2 rounded-lg bg-glass/50 backdrop-blur-sm border border-glass-border text-secondary-gray placeholder-secondary-gray/50 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20 resize-none"
+            className="w-full px-4 py-2 rounded-lg bg-glass/50 backdrop-blur-sm border border-glass-border text-black placeholder-secondary-gray/50 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20 resize-none"
             rows="4"
             placeholder="Your message..."
             required
