@@ -14,6 +14,9 @@ const playfair = Playfair_Display({
 export const metadata = {
   title: "Business Concepts Consulting Accounting Services | Professional Accounting & Tax Services",
   description: "Professional accounting, tax planning, and business advisory services tailored to your needs. Contact Business Concepts Consulting Accounting Services today.",
+  icons: {
+    icon: '/businessConceptsConsulting.png',
+  },
 };
 
 export default function RootLayout({ children }) {
