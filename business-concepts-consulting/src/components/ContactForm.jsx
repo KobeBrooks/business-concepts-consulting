@@ -8,6 +8,7 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     message: ''
   });
   const [status, setStatus] = useState({
@@ -43,6 +44,7 @@ export default function ContactForm() {
         {
           from_name: formData.name,
           from_email: formData.email,
+          phone: formData.phone,
           message: formData.message,
           to_email: 'chrisearle.bcc@gmail.com',
         },
@@ -57,7 +59,7 @@ export default function ContactForm() {
       });
 
       // Reset form
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', message: '' });
 
       // Clear success message after 5 seconds
       setTimeout(() => {
@@ -116,6 +118,18 @@ export default function ContactForm() {
             className="w-full px-4 py-2 rounded-lg bg-glass/50 backdrop-blur-sm border border-glass-border text-black placeholder-secondary-gray/50 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20"
             placeholder="your.email@example.com"
             required
+            disabled={status.loading}
+          />
+        </div>
+        <div>
+          <label className="block mb-2 text-secondary-gray">Phone</label>
+          <input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            className="w-full px-4 py-2 rounded-lg bg-glass/50 backdrop-blur-sm border border-glass-border text-black placeholder-secondary-gray/50 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20"
+            placeholder="(770) 123-4567"
             disabled={status.loading}
           />
         </div>
