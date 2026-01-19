@@ -108,10 +108,10 @@ export default function AboutPage() {
               <GlassCard className="p-8 group hover:scale-[1.02] transition-all duration-300">
                 <div className="aspect-square relative mb-6 overflow-hidden rounded-xl">
                   <Image
-                    src={getImagePath('/chrisEarle.jpeg')}
+                    src={getImagePath('/chrisEarleNew.jpg')}
                     alt="Chris Earle"
                     fill
-                    className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-top transform group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -128,7 +128,7 @@ export default function AboutPage() {
               <GlassCard className="p-8 group hover:scale-[1.02] transition-all duration-300">
                 <div className="aspect-square relative mb-6 overflow-hidden rounded-xl">
                   <Image
-                    src={getImagePath('/audreyEarle.jpeg')}
+                    src={getImagePath('/audreyEarleNew.jpg')}
                     alt="Audrey Earle"
                     fill
                     className="object-cover transform group-hover:scale-105 transition-transform duration-500"
