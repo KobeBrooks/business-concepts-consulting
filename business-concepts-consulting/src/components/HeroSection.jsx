@@ -131,8 +131,8 @@ export default function HeroSection() {
         {/* Stats Section */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { number: '700+', label: 'Clients Served' },
-            { number: '15+', label: 'Years Experience' },
+            { number: '1000+', label: 'Clients Served' },
+            { number: '50+', label: 'Years Experience' },
             { number: '100%', label: 'Satisfaction Rating' },
             { number: '24/7', label: 'Support' }
           ].map((stat, index) => (
