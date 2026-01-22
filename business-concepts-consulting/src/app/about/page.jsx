@@ -65,7 +65,7 @@ export default function AboutPage() {
 
           {/* Stats Section */}
           <ScrollAnimation>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-16">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 my-16">
               {stats.map((stat, index) => (
                 <GlassCard key={index} className="p-6 text-center hover:scale-105 transition-transform duration-300">
                   <motion.div
