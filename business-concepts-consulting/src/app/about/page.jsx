@@ -18,10 +18,9 @@ export default function AboutPage() {
 
   // Stats data
   const stats = [
-    { label: 'Years Combined Experience', value: '47+' },
+    { label: 'Years Combined Experience', value: '50+' },
     { label: 'Happy Clients', value: '1000+' },
-    { label: 'Industries Served', value: '25+' },
-    { label: 'Tax Returns Filed', value: '5000+' },
+    { label: 'Tax Returns Filed Annually', value: '800+' }
   ];
 
   // Core values
@@ -52,13 +51,13 @@ export default function AboutPage() {
               </h1>
               <div className="space-y-6 text-secondary-gray/90">
                 <p className="text-lg leading-relaxed">
-                  We provide individuals and businesses with income tax planning & preparation, Accounting & Bookkeeping services and business consulting. With over 15 years in practice, we have a broad base of Financial Planning and analytical knowledge in the performance of audits, reviews and compilations.
+                  We provide individuals and businesses with income tax planning, preparation, & filing. Accounting & Bookkeeping services and business consulting. With over 15 years in practice, we have a broad base of Financial Planning and analytical knowledge in the performance of audits, reviews and compilations.
                 </p>
                 <p className="text-lg leading-relaxed">
                   Our mission is to build our clients' financial worth by providing quality accounting, tax and consulting services.
                 </p>
                 <p className="text-lg leading-relaxed">
-                  Business Concepts Consulting is committed to your success by making it our business to know your business well enough to improve your tax position, capital position, business structure and benefits packages and much more. We are looking forward to a successful working relationship.
+                  Business Concepts Consulting is committed to your success by making it our business to know your business well enough to improve your tax position, capital position, business structure and much more. We are looking forward to a successful working relationship.
                 </p>
               </div>
             </GlassCard>
@@ -118,7 +117,7 @@ export default function AboutPage() {
                 <h2 className="text-2xl font-bold text-secondary-gray mb-2">Chris Earle</h2>
                 <h3 className="text-accent-teal mb-4">Managing Partner</h3>
                 <p className="text-secondary-gray/90 leading-relaxed">
-                  Chris has over 20 years of experience in tax preparation, financial accounting, and business consulting services. His clients include Individuals, S-Corporations, C Corporations, Partnerships, and Non-profit organizations. Chris also has experience in working with clients in providing advice on accounting procedures, financial statement analysis & review, and analyzing internal controls. Before joining Business Concepts, Chris spent over 9 years in the energy industry focusing primarily on SEC financial reporting.
+                  Chris has over 30 years of experience in tax preparation, financial accounting, and business consulting services. His clients include Individuals, S-Corporations, C Corporations, Partnerships, and Non-profit organizations. Chris also has experience in working with clients in providing advice on accounting procedures, financial statement analysis & review, and analyzing internal controls. Before joining Business Concepts, Chris spent over 9 years in the energy industry focusing primarily on SEC financial reporting.
                 </p>
               </GlassCard>
             </ScrollAnimation>

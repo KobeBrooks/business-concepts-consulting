@@ -73,8 +73,7 @@ export default function ServicesPage() {
         'Business tax planning',
         'Quarterly tax estimates',
         'Business deduction optimization',
-        'Industry-specific tax strategies',
-        'Multi-state tax compliance'
+        'Multi-state tax filing'
       ]
     },
     {
@@ -84,7 +83,6 @@ export default function ServicesPage() {
         details: [
           'Monthly financial recording',
           'Bank reconciliation',
-          'Accounts payable/receivable',
           'General ledger maintenance',
           'Financial statement preparation',
           'QuickBooks setup and support',
@@ -112,11 +110,7 @@ export default function ServicesPage() {
       icon: '📑',
       details: [
         '1099 form preparation',
-        'Electronic submission to IRS',
-        'Year-end processing',
-        'Employee/contractor classification review',
-        'Deadline compliance management',
-        'Record keeping assistance'
+        'Electronic submission to IRS'
       ]
     },
     {
@@ -130,7 +124,6 @@ export default function ServicesPage() {
         'Cash flow optimization',
         'Business process improvement',
         'Risk assessment',
-        'Market analysis',
         'Profitability enhancement strategies'
       ]
     },
@@ -144,9 +137,7 @@ export default function ServicesPage() {
         'Audit strategy development',
         'IRS correspondence handling',
         'Tax notice resolution',
-        'Payment plan negotiation',
-        'Penalty abatement requests',
-        'Tax settlement assistance'
+        'Penalty abatement requests'
       ]
     },
     {
@@ -156,12 +147,11 @@ export default function ServicesPage() {
       details: [
         'Entity structure consultation',
         'State incorporation filing',
-        'LLC formation',
+        'Limited Liability Company formation',
         'Partnership establishment',
         'EIN registration',
         'Business license acquisition',
-        'Corporate bylaw preparation',
-        'Initial compliance setup'
+        'Corporate bylaw preparation'
       ]
     }
   ];
