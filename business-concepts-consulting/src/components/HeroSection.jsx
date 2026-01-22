@@ -1,19 +1,17 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import GlassCard from './GlassCard';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import FloatingEmojis from './FloatingEmojis';
 import { getImagePath } from '@/utils/imagePath';
-import { useState, useEffect, useMemo } from 'react';
 
 export default function HeroSection() {
   const router = useRouter();
-  const [currentSlide, setCurrentSlide] = useState(0);
   
-  const slides = useMemo(() => [
+  const images = [
     {
       image: '/theEarles.png',
       alt: 'Chris & Audrey Earle',
@@ -28,15 +26,7 @@ export default function HeroSection() {
       subtitle: 'Award Winner',
       showNameplate: false
     }
-  ], []);
-
-  // Auto-rotate carousel every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [slides.length]);
+  ];
 
   const handleScroll = () => {
     window.scrollTo({
@@ -101,106 +91,39 @@ export default function HeroSection() {
               </GlassCard>
             </div>
 
-            {/* Right Column - Carousel */}
-            <div className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full mt-8 lg:mt-0">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <GlassCard className="w-full h-full sm:h-[450px] md:h-[500px] relative overflow-hidden group">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={currentSlide}
-                      initial={{ opacity: 0, scale: 0.95, x: 20 }}
-                      animate={{ opacity: 1, scale: 1, x: 0 }}
-                      exit={{ opacity: 0, scale: 0.95, x: -20 }}
-                      transition={{ duration: 0.6, ease: "easeInOut" }}
-                      className="absolute inset-0"
-                    >
-                      <Image
-                        src={getImagePath(slides[currentSlide].image)}
-                        alt={slides[currentSlide].alt}
-                        fill
-                        className={`object-contain ${slides[currentSlide].showNameplate ? 'p-4 sm:p-6 md:p-8' : 'p-3 sm:p-4 md:p-8'}`}
-                        priority={currentSlide === 0}
-                      />
-                      {/* Elegant Nameplate - only for Earles image */}
-                      {slides[currentSlide].showNameplate && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.3 }}
-                          className="absolute bottom-0 left-0 right-0 flex justify-center mb-4 sm:mb-8"
-                        >
-                          <div className="backdrop-blur-xl bg-gradient-to-br from-accent-teal/80 to-accent-teal/60 border-2 border-accent-teal/40 rounded-xl px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 shadow-xl">
-                            <div className="text-center space-y-1 sm:space-y-2">
-                              <h3 className="font-playfair text-lg sm:text-xl md:text-2xl text-white font-bold tracking-wide">
-                                {slides[currentSlide].title}
-                              </h3>
-                              <p className="font-light text-xs sm:text-sm text-white/90 tracking-[0.15em] uppercase">
-                                {slides[currentSlide].subtitle}
-                              </p>
-                            </div>
-                          </div>
-                        </motion.div>
-                      )}
-                      {/* Award badge for plaque */}
-                      {!slides[currentSlide].showNameplate && (
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.3 }}
-                          className="absolute bottom-0 left-0 right-0 flex justify-center mb-4 sm:mb-8"
-                        >
-                          <div className="backdrop-blur-xl bg-gradient-to-br from-accent-teal/30 to-accent-teal/10 border-2 border-accent-teal/40 rounded-xl px-4 sm:px-6 py-2 sm:py-3 shadow-xl">
-                            <div className="text-center space-y-1">
-                              <h3 className="font-playfair text-lg sm:text-xl md:text-2xl text-accent-teal font-bold tracking-wide">
-                                {slides[currentSlide].title}
-                              </h3>
-                              <p className="font-light text-xs sm:text-sm text-secondary-gray/90 tracking-[0.15em] uppercase">
-                                {slides[currentSlide].subtitle}
-                              </p>
-                            </div>
-                          </div>
-                        </motion.div>
-                      )}
-                    </motion.div>
-                  </AnimatePresence>
-                  
-                  {/* Navigation Arrows - visible on mobile, hover on desktop */}
-                  <button
-                    onClick={() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)}
-                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full backdrop-blur-md bg-glass/70 border border-glass-border/50 hover:bg-glass/90 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100"
-                    aria-label="Previous slide"
-                  >
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-secondary-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
-                  <button
-                    onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
-                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full backdrop-blur-md bg-glass/70 border border-glass-border/50 hover:bg-glass/90 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100"
-                    aria-label="Next slide"
-                  >
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6 text-secondary-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                  
-                  {/* Navigation Dots */}
-                  <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-                    {slides.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentSlide(index)}
-                        className={`h-2 rounded-full transition-all duration-300 ${
-                          currentSlide === index
-                            ? 'w-6 sm:w-8 bg-accent-teal'
-                            : 'w-2 bg-secondary-gray/40 hover:bg-secondary-gray/60'
-                        }`}
-                        aria-label={`Go to slide ${index + 1}`}
-                      />
-                    ))}
-                  </div>
-                </GlassCard>
-              </div>
+            {/* Right Column - Side by Side Images */}
+            <div className="grid grid-cols-2 gap-4 mt-8 lg:mt-0">
+              {images.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                >
+                  <GlassCard className="relative overflow-hidden group h-[200px] sm:h-[280px] md:h-[350px]">
+                    <Image
+                      src={getImagePath(item.image)}
+                      alt={item.alt}
+                      fill
+                      className={`object-contain ${item.showNameplate ? 'p-2 sm:p-4' : 'p-2 sm:p-4'}`}
+                      priority={index === 0}
+                    />
+                    {/* Caption */}
+                    <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-2 sm:mb-4">
+                      <div className={`backdrop-blur-xl ${item.showNameplate ? 'bg-gradient-to-br from-accent-teal/80 to-accent-teal/60' : 'bg-gradient-to-br from-accent-teal/30 to-accent-teal/10'} border border-accent-teal/40 rounded-lg px-2 sm:px-4 py-1 sm:py-2 shadow-xl`}>
+                        <div className="text-center">
+                          <h3 className={`font-playfair text-xs sm:text-sm md:text-base ${item.showNameplate ? 'text-white' : 'text-accent-teal'} font-bold tracking-wide`}>
+                            {item.title}
+                          </h3>
+                          <p className={`font-light text-[10px] sm:text-xs ${item.showNameplate ? 'text-white/90' : 'text-secondary-gray/90'} tracking-wider uppercase hidden sm:block`}>
+                            {item.subtitle}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </GlassCard>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
