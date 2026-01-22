@@ -45,7 +45,7 @@ export default function NotFound() {
               {/* Emoji */}
               <motion.div
                 initial={{ rotate: -10 }}
-                animate={{ rotate: [−10, 10, -10] }}
+                animate={{ rotate: [-10, 10, -10] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 className="text-6xl mb-6"
               >
