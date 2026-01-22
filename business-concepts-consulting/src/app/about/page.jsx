@@ -19,7 +19,7 @@ export default function AboutPage() {
   // Stats data
   const stats = [
     { label: 'Years Combined Experience', value: '50+' },
-    { label: 'Happy Clients', value: '1000+' },
+    { label: 'Happy Clients', value: '700+' },
     { label: 'Tax Returns Filed Annually', value: '800+' }
   ];
 
